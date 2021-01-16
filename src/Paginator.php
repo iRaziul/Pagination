@@ -206,6 +206,16 @@ class Paginator
 	}
 
 	/**
+	 * Returns the number of items to shown per page.
+	 *
+	 * @return integer
+	 */
+	public function perPage()
+	{
+		return $this->itemsPerPage;
+	}
+
+	/**
 	 * Returns the offset number for current page.
 	 *
 	 * @return integer
@@ -348,6 +358,35 @@ class Paginator
 	public function onLastPage()
 	{
 		return $this->currentPage >= $this->lastPage();
+	}
+
+	/**
+	 * Returns the pagination data as array.
+	 *
+	 * @return array
+	 */
+	public function toArray()
+	{
+		return [
+			'current_page' => $this->currentPage(),
+			'from' => $this->firstItem(),
+			'to' => $this->lastItem(),
+			'per_page' => $this->perPage(),
+			'first_page_url' => $this->firstPageUrl(),
+			'last_page_url' => $this->lastPageUrl(),
+			'next_page_url' => $this->nextPageUrl(),
+			'prev_page_url' => $this->previousPageUrl(),
+		];
+	}
+
+	/**
+	 * Returns the pagination data as json string.
+	 *
+	 * @return string
+	 */
+	public function toJson()
+	{
+		return json_encode($this->toArray());
 	}
 
 	/**
