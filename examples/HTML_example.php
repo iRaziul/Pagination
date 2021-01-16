@@ -2,29 +2,16 @@
 
 use Raziul\Pagination\Paginator;
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
-// Translation [Bengali]
-Paginator::setLabels([
-	'first' => 'প্রথম',
-	'last' => 'শেষ',
-	'previous' => 'পূর্ববর্তী',
-	'next' => 'পরবর্তী',
-	'numbers' => ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯']
-]);
+$total_items = 1500;
+$items_perpage = 20;
+$current_page = (int) ($_GET['page'] ?? 1);
 
-// Pagination
-$items = 1540;
-$perPage = 30;
-$page = $_GET['page'] ?? 1;
-$pagination = new Paginator($items, $perPage, $page);
-$pagination->firstLastLinks(true);
-
-// Helper to Render HTML
-echo $pagination->toHtml();
+$pagination = new Paginator($total_items, $items_perpage, $current_page);
 
 // Pagination in HTML
-/* 
+
 $html = '<ul class="pagination">';
 
 // First
@@ -68,51 +55,7 @@ $html .= '</ul>';
 echo $html;
 
 echo "Showing {$pagination->firstItem()} to {$pagination->lastItem()} of {$pagination->totalItems()} entries";
- */
-?>
-<style>
-	body {
-		margin: 0 auto;
-		font-family: Roboto;
-		font-size: 14px;
-		display: grid;
-		place-content: center;
-	}
 
-	a {
-		text-decoration: none;
-	}
 
-	.pagination {
-		padding: 8px 12px;
-		background-color: #fff;
-	}
-
-	.pagination .page-item {
-		list-style: none;
-		display: inline-block;
-		margin: 4px;
-	}
-
-	.pagination .page-item .page-link {
-		padding: 8px 12px;
-		border: 1px solid #e0e0e0;
-		border-radius: 4px;
-		color: #444;
-	}
-
-	.pagination .page-item.active .page-link {
-		background-color: #5e35b1;
-		border-color: #5e35b1;
-		color: #fff;
-	}
-
-	.pagination .page-item.disabled .page-link {
-		color: #888;
-		cursor: not-allowed;
-	}
-
-	.pagination .page-item:not(.active) .page-link:hover {
-		background-color: #e0e0e0;
-	}
-</style>
+// Stylesheet
+echo '<link rel="stylesheet" href="./style.css">';

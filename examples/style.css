@@ -1,0 +1,44 @@
+body {
+	margin: 0 auto;
+	font-family: Roboto;
+	font-size: 14px;
+	display: grid;
+	place-content: center;
+}
+
+a {
+	text-decoration: none;
+}
+
+.pagination {
+	padding: 8px 12px;
+	background-color: #fff;
+}
+
+.pagination .page-item {
+	list-style: none;
+	display: inline-block;
+	margin: 4px;
+}
+
+.pagination .page-item .page-link {
+	padding: 8px 12px;
+	border: 1px solid #e0e0e0;
+	border-radius: 4px;
+	color: #444;
+}
+
+.pagination .page-item.active .page-link {
+	background-color: #5e35b1;
+	border-color: #5e35b1;
+	color: #fff;
+}
+
+.pagination .page-item.disabled .page-link {
+	color: #888;
+	cursor: not-allowed;
+}
+
+.pagination .page-item:not(.active) .page-link:hover {
+	background-color: #e0e0e0;
+}
