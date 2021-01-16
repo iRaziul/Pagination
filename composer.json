@@ -1,0 +1,18 @@
+{
+    "name": "raziul/pagination",
+    "description": "Just another pagination library for PHP.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [{
+        "name": "Raziul Islam",
+        "email": "raziul.cse@gmail.com"
+    }],
+    "autoload": {
+        "psr-4": {
+            "Raziul\\Pagination\\": "src/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}
