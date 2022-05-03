@@ -4,9 +4,9 @@ namespace Raziul\Pagination;
 
 /**
  * Paginator - Just another pagination library for PHP.
- * 
+ *
  * @author Raziul Islam <raziul.cse@gmail.com>
- * @link https://raziulislam.com
+ * @link https://raziul.dev
  * @package Raziul\Pagination
  * @version 1.0
  */
